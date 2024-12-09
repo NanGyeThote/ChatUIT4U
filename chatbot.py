@@ -7,8 +7,9 @@ import streamlit as st
 from keras.models import load_model
 
 # Ensure punkt and wordnet resources are available
-nltk.download('punkt')
 nltk.download('wordnet')
+nltk.download('punkt')
+
 
 # Initialize lemmatizer and load data
 lemmatizer = nltk.WordNetLemmatizer()
@@ -61,17 +62,16 @@ def get_response(intents_list, intents_json):
 st.title("UIT Chatbot")
 st.write("Welcome to the University of Information Technology (UIT) Yangon chatbot!")
 
-# Display conversation history
-if 'conversation_history' not in st.session_state:
-    st.session_state.conversation_history = []
+# Initialize conversation history as a local variable
+conversation_history = []
 
 # Input box for user messages and send button
-user_input = st.text_input("You: ", value=st.session_state.user_input)
+user_input = st.text_input("You: ")
 
 # Handle Exit phrases (exit, bye, goodbye, etc.)
 exit_phrases = ["exit", "bye", "goodbye", "see you", "quit", "later"]
 if user_input.lower() in exit_phrases:
-    st.session_state.conversation_history.append({"role": "bot", "message": "Goodbye! Have a great day."})
+    conversation_history.append({"role": "bot", "message": "Goodbye! Have a great day."})
     st.write("Bot: Goodbye! Have a great day.")
     st.stop()  # Stops the Streamlit app execution
 else:
@@ -85,17 +85,17 @@ else:
                 ints = predict_class(user_input)
                 response = get_response(ints, intents)
                 
-                # Display the bot's response in conversation history
-                st.session_state.conversation_history.append({"role": "user", "message": user_input})
-                st.session_state.conversation_history.append({"role": "bot", "message": response})
+                # Add the conversation to the history
+                conversation_history.append({"role": "user", "message": user_input})
+                conversation_history.append({"role": "bot", "message": response})
                 
                 # Update UI with conversation history
-                for msg in st.session_state.conversation_history:
+                for msg in conversation_history:
                     role = "User" if msg['role'] == 'user' else "Bot"
                     st.write(f"{role}: {msg['message']}")
 
             # Clear the text input after sending
-            st.session_state.user_input = ""  # Clear the text input field
+            user_input = ""  # Clear the text input field
         except Exception as e:
             st.write(f"Error: {e}")
             st.write("Bot: Sorry, there was an issue processing your message.")
@@ -104,5 +104,3 @@ else:
     elif send_button and not user_input.strip():
         st.write("Bot: Please type a message!")
 
-    # Update the session state with the latest input after every change
-    st.session_state.user_input = user_input

@@ -6,6 +6,12 @@ import nltk
 import streamlit as st
 from keras.models import load_model
 
+# Ensure necessary NLTK resources are downloaded
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
+
 # Initialize lemmatizer and load data
 lemmatizer = nltk.WordNetLemmatizer()
 intents = json.loads(open('./intents.json').read())
@@ -54,20 +60,41 @@ def get_response(intents_list, intents_json):
     return "Sorry, I didn't find an appropriate response."
 
 # Streamlit App
-
 st.title("UIT Chatbot")
 st.write("Welcome to the University of Information Technology (UIT) Yangon chatbot!")
 
-# Input box for user messages
-user_input = st.text_input("You: ", "")
+# Check if session state exists for user_input, otherwise initialize it
+if 'user_input' not in st.session_state:
+    st.session_state.user_input = ""
+
+# Input box for user messages and send button
+user_input = st.text_input("You: ", value=st.session_state.user_input)
 
 # Handle Exit phrases (exit, bye, goodbye, etc.)
 exit_phrases = ["exit", "bye", "goodbye", "see you", "quit", "later"]
 if user_input.lower() in exit_phrases:
     st.write("Bot: Goodbye! Have a great day.")
+    st.stop()  # Stops the Streamlit app execution
 else:
-    # Process user input and get response
-    if user_input:
-        ints = predict_class(user_input)
-        response = get_response(ints, intents)
-        st.write(f"Bot: {response}")
+    send_button = st.button("Send")
+
+    # Check if the user clicked the "Send" button and user_input is not empty
+    if send_button and user_input.strip():
+        try:
+            # Predict and get response from the model
+            ints = predict_class(user_input)
+            response = get_response(ints, intents)
+            st.write(f"Bot: {response}")
+            
+            # Clear the text input after sending
+            st.session_state.user_input = ""  # Clear the text input field
+        except Exception as e:
+            st.write(f"Error: {e}")
+            st.write("Bot: Sorry, there was an issue processing your message.")
+    
+    # If the user has not typed anything, show a prompt
+    elif send_button and not user_input.strip():
+        st.write("Bot: Please type a message!")
+    
+    # Update the session state with the latest input after every change
+    st.session_state.user_input = user_input

@@ -27,7 +27,12 @@ lemmatizer = nltk.WordNetLemmatizer()
 intents = json.loads(open('./intents.json').read())
 words = pickle.load(open('words.pkl', 'rb'))
 classes = pickle.load(open('classes.pkl', 'rb'))
-model = load_model('uit_chat.h5')
+
+try:
+    model = load_model('uit_chat.h5')
+except Exception as e:
+    st.error(f"Error loading model: {e}")
+
 
 # Function to clean and lemmatize the sentence
 def clean_up_sentence(sentence):

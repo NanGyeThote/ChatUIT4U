@@ -10,7 +10,7 @@ from keras.models import load_model
 try:
     nltk.data.find('tokenizers/punkt')
 except LookupError:
-    nltk.download('punkt')
+    nltk.download('punkt_tab')
 
 # Initialize lemmatizer and load data
 lemmatizer = nltk.WordNetLemmatizer()

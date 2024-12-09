@@ -10,6 +10,8 @@ from keras.models import load_model
 nltk.download('wordnet')
 nltk.download('punkt')
 
+if 'user_input' not in st.session_state:
+    st.session_state.user_input = ""
 
 # Initialize lemmatizer and load data
 lemmatizer = nltk.WordNetLemmatizer()

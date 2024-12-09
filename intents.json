@@ -1,0 +1,324 @@
+{
+    "intents": [
+        {
+            "tag": "info",
+            "patterns": [
+                "Tell me about the University of Information Technology, Yangon",
+                "What are the programs offered at UIT Yangon?",
+                "Can you provide details about the University of Information Technology, Yangon?",
+                "When was UIT Yangon established?",
+                "What are the academic offerings at UIT Yangon?",
+                "How can I learn more about UIT Yangon?"
+            ],
+            "responses": [
+                "The University of Information Technology, Yangon, offers two primary academic branches: Computer Science and Computer Technology. In Computer Science, students can major in Software Engineering, High Performance Computing, Knowledge Engineering, and Business Information Systems. The Computer Technology branch offers majors like Embedded Systems, Networking, and Cyber Security.",
+                "UIT Yangon was established to offer quality education in the fields of Information Technology and Computer Science.",
+                "For detailed information about programs, admissions, and school history, please visit the university's official website or contact the admissions office. Check UIT official website for more informations."
+            ]
+        },
+        {
+            "tag": "origin",
+            "patterns": [
+                "When was UIT Yangon founded?",
+                "Can you tell me the history of UIT Yangon?",
+                "What is the origin of UIT Yangon?",
+                "How old is UIT Yangon?",
+                "What is UIT?"
+            ],
+            "responses": [
+                "UIT Yangon was founded on January 15, 2015, to promote advanced education and research in Information Technology.",
+                "UIT Yangon has been providing high-quality education in IT and Computer Science since its founding on January 15, 2015."
+            ]
+        },
+        {
+            "tag": "software",
+            "patterns": [
+                "What is Software Engineering?",
+                "Can you explain Software Engineering?",
+                "Tell me about Software Engineering"
+            ],
+            "responses": [
+                "Software Engineering focuses on the design, development, and maintenance of software applications. Students learn about software development methodologies, programming languages, and how to manage projects effectively."
+            ]
+        },
+        {
+            "tag": "high",
+            "patterns": [
+                "What is High Performance Computing?",
+                "Can you explain High Performance Computing?",
+                "Tell me about High Performance Computing"
+            ],
+            "responses": [
+                "High Performance Computing involves computing systems that perform at high speeds, allowing for complex simulations and calculations. It covers parallel computing, cluster computing, and advanced algorithms for data processing."
+            ]
+        },
+        {
+            "tag": "knowledge",
+            "patterns": [
+                "What is Knowledge Engineering?",
+                "Can you explain Knowledge Engineering?",
+                "Tell me about Knowledge Engineering"
+            ],
+            "responses": [
+                "Knowledge Engineering is about building systems that capture, manage, and apply knowledge to support decision-making. It uses artificial intelligence, expert systems, and knowledge management techniques."
+            ]
+        },
+        {
+            "tag": "business",
+            "patterns": [
+                "What is Business Information System?",
+                "Can you explain Business Information System?",
+                "Tell me about Business Information System"
+            ],
+            "responses": [
+                "Business Information Systems integrate IT with business management to enhance organizational processes. It involves systems analysis, database management, and enterprise resource planning (ERP)."
+            ]
+        },
+        {
+            "tag": "system",
+            "patterns": [
+                "What are Embedded Systems?",
+                "Can you explain Embedded Systems?",
+                "Tell me about Embedded Systems"
+            ],
+            "responses": [
+                "Embedded Systems are specialized computing systems integrated into devices. They are used in consumer electronics, automotive systems, and industrial machinery, combining both hardware and software components."
+            ]
+        },
+        {
+            "tag": "networking",
+            "patterns": [
+                "What is Networking?",
+                "Can you explain Networking?",
+                "Tell me about Networking"
+            ],
+            "responses": [
+                "Networking involves designing, implementing, and managing communication systems. It covers network protocols, security, and wireless communications to enable smooth data transmission."
+            ]
+        },
+        {
+            "tag": "cyber",
+            "patterns": [
+                "What is Cyber Security?",
+                "Can you explain Cyber Security?",
+                "Tell me about Cyber Security"
+            ],
+            "responses": [
+                "Cyber Security focuses on protecting systems and networks from digital threats. It covers ethical hacking, cryptography, and developing security policies to prevent cyberattacks."
+            ]
+        },
+        {
+            "tag": "scholarship",
+            "patterns": [
+                "Are there scholarships available at UIT Yangon?",
+                "How can I apply for scholarships at UIT Yangon?",
+                "Can I get financial aid to study at UIT Yangon?",
+                "What are the scholarship opportunities at UIT Yangon?"
+            ],
+            "responses": [
+                "UIT Yangon offers various scholarships for students based on merit, need, and program of study. For more information on how to apply, please visit the scholarship section on the university’s official website or contact the admissions office."
+            ]
+        },
+        {
+            "tag": "admissions",
+            "patterns": [
+                "How do I apply for admission to UIT Yangon?",
+                "What are the admission requirements for UIT Yangon?",
+                "Can you tell me how to enroll at UIT Yangon?",
+                "When is the next intake for UIT Yangon?"
+            ],
+            "responses": [
+                "To apply for admission to UIT Yangon, you need to visit the admissions section on their website, where you'll find detailed instructions and requirements for your program of interest. The university has multiple intakes throughout the year, and the deadlines vary."
+            ]
+        },
+        {
+            "tag": "greeting",
+            "patterns": [
+                "Hi there",
+                "Hello",
+                "How are you?",
+                "Hey",
+                "Hola",
+                "Good day"
+            ],
+            "responses": [
+                "Hello! Welcome to the UIT Yangon chatbot. How can I assist you today?",
+                "Good to see you! Feel free to ask me anything about UIT Yangon.",
+                "Hi! How can I help you with your queries about UIT Yangon?"
+            ]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "Bye",
+                "Goodbye",
+                "See you later",
+                "Take care"
+            ],
+            "responses": [
+                "Goodbye! Have a great day!",
+                "Take care! See you soon!",
+                "Thanks for chatting! Feel free to return anytime for more info."
+            ]
+        },
+        {
+            "tag": "thanks",
+            "patterns": [
+                "Thanks",
+                "Thank you",
+                "That was helpful",
+                "Awesome, thanks"
+            ],
+            "responses": [
+                "You're welcome! If you have any more questions, feel free to ask.",
+                "Glad I could help! Let me know if you need anything else."
+            ]
+        },
+        {
+            "tag": "principal",
+            "patterns": [
+                "Who is the current principal?",
+                "Tell me about the principal",
+                "Who is the principal of UIT Yangon?"
+            ],
+            "responses": [
+                "The current principal of the University of Information Technology, Yangon, is Professor Daw Saw Sandar Aye."
+            ]
+        },
+        {
+            "tag": "majors",
+            "patterns": [
+                "What majors can I study at UIT Yangon?",
+                "What programs does UIT Yangon offer?",
+                "Tell me about the academic disciplines at UIT Yangon"
+            ],
+            "responses": [
+                "UIT Yangon offers various programs in two branches:\n\n**Computer Science:**\n- Software Engineering (SE)\n- High Performance Computing (HPC)\n- Knowledge Engineering (KE)\n- Business Information Systems (BIS)\n\n**Computer Technology:**\n- Embedded Systems\n- Networking\n- Cyber Security"
+            ]
+        },
+        {
+            "tag": "artificial_intelligence",
+            "patterns": [
+                "What is Artificial Intelligence?",
+                "Can you explain Artificial Intelligence?",
+                "Tell me about AI"
+            ],
+            "responses": [
+                "Artificial Intelligence (AI) involves creating systems that can perform tasks that would typically require human intelligence. These tasks include problem-solving, decision-making, speech recognition, and learning. AI is a key component in various fields such as robotics, data science, and software development."
+            ]
+        },
+        {
+            "tag": "machine_learning",
+            "patterns": [
+                "What is Machine Learning?",
+                "Can you explain Machine Learning?",
+                "Tell me about Machine Learning"
+            ],
+            "responses": [
+                "Machine Learning is a subset of Artificial Intelligence where systems are trained to learn from data and improve over time without being explicitly programmed. It's used in areas such as image recognition, natural language processing, and predictive analytics."
+            ]
+        },
+        {
+            "tag": "blockchain",
+            "patterns": [
+                "What is Blockchain?",
+                "Can you explain Blockchain technology?",
+                "Tell me about Blockchain"
+            ],
+            "responses": [
+                "Blockchain is a decentralized digital ledger technology that securely records transactions across multiple computers. It is the foundation for cryptocurrencies like Bitcoin, and it's also used in various industries for secure record-keeping and transparent systems."
+            ]
+        },
+        {
+            "tag": "cloud_computing",
+            "patterns": [
+                "What is Cloud Computing?",
+                "Can you explain Cloud Computing?",
+                "Tell me about Cloud Computing"
+            ],
+            "responses": [
+                "Cloud Computing allows users to access and store data over the internet, instead of on local servers. It provides scalable computing resources like storage, computing power, and applications through services such as Amazon Web Services (AWS), Microsoft Azure, and Google Cloud."
+            ]
+        },
+        {
+            "tag": "internship_opportunities",
+            "patterns": [
+                "Are there internship opportunities at UIT Yangon?",
+                "Can I apply for internships through UIT Yangon?",
+                "Does UIT Yangon offer internships for students?"
+            ],
+            "responses": [
+                "UIT Yangon provides various internship opportunities for students to gain hands-on experience in their field of study. These internships are often in collaboration with industry partners. For more information, check the Career Services section on the UIT website."
+            ]
+        },
+        {
+            "tag": "research_opportunities",
+            "patterns": [
+                "Are there research opportunities at UIT Yangon?",
+                "Can students participate in research projects at UIT Yangon?",
+                "Tell me about the research opportunities at UIT Yangon"
+            ],
+            "responses": [
+                "UIT Yangon offers several research opportunities for students, particularly in the fields of computer science, IT, and engineering. Students can collaborate with faculty on cutting-edge projects and contribute to advancements in technology and innovation."
+            ]
+        },
+        {
+            "tag": "company_details",
+            "patterns": [
+                "Tell me about the companies collaborating with UIT Yangon",
+                "Which companies are partnered with UIT Yangon?",
+                "Can you provide information about companies working with UIT Yangon?",
+                "What companies have internships or job opportunities through UIT Yangon?"
+            ],
+            "responses": [
+                "UIT Yangon has strong collaborations with various technology companies and organizations, both locally and internationally. These partnerships provide students with internship opportunities, real-world exposure, and job placements after graduation. Some of the companies that UIT Yangon works closely with include leading IT firms, software companies, and tech startups. For specific details about company partnerships and internship opportunities, please visit the Career Services page on the UIT Yangon website."
+            ]
+        },
+        {
+            "tag": "tech_partners",
+            "patterns": [
+                "What technology companies partner with UIT Yangon?",
+                "Can you tell me about the tech companies working with UIT Yangon?",
+                "Are there any tech companies collaborating with UIT Yangon?",
+                "What are interns companies?"
+            ],
+            "responses": [
+                "UIT Yangon has partnerships with a range of top technology companies that help provide students with exposure to industry standards, tools, and methodologies. These partnerships often lead to internships, workshops, and even recruitment drives. For more details, you can check the official UIT Yangon Career Services page."
+            ]
+        },
+        {
+            "tag": "startup_collaborations",
+            "patterns": [
+                "Does UIT Yangon work with any startups?",
+                "Can I collaborate with startups through UIT Yangon?",
+                "What startups are affiliated with UIT Yangon?"
+            ],
+            "responses": [
+                "UIT Yangon actively collaborates with startups, especially in the tech and IT sectors. Students have opportunities to engage with innovative startups through internships, projects, and research initiatives. These collaborations help students develop entrepreneurial skills and gain practical experience in the fast-paced startup ecosystem."
+            ]
+        },
+        {
+            "tag": "job_opportunities",
+            "patterns": [
+                "Are there job opportunities through UIT Yangon?",
+                "Can UIT Yangon help me find a job?",
+                "What job opportunities are available for UIT Yangon graduates?"
+            ],
+            "responses": [
+                "UIT Yangon has a strong career services network that helps students and graduates find job opportunities in the tech industry. The university’s partnerships with various companies lead to job fairs, recruitment events, and direct hiring by industry partners. For detailed information, please visit the Job Opportunities section on the UIT Yangon website."
+            ]
+        },
+        {
+            "tag": "japanese_language",
+            "patterns": [
+                "Is Japanese language needed for internships at UIT Yangon?",
+                "Do I need to know Japanese to apply for internships at UIT Yangon?",
+                "Is it important to know Japanese for internships at UIT Yangon?",
+                "Do internships at UIT Yangon require Japanese language skills?"
+            ],
+            "responses": [
+                "Yes, Japanese language skills are crucial for many internship opportunities at UIT Yangon. Several companies, especially Japanese tech firms, require interns to be proficient in Japanese to effectively communicate and work on projects. As a result, students who wish to apply for internships with these companies need to have a good command of the Japanese language. It is highly recommended to learn Japanese if you're planning to pursue internships related to Japanese companies or in fields where the language is essential."
+            ]
+        }                
+    ]
+}

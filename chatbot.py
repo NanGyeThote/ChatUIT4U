@@ -7,11 +7,16 @@ import streamlit as st
 from keras.models import load_model
 
 # Ensure punkt and wordnet resources are available
-nltk.download('wordnet')
 nltk.download('punkt')
+nltk.download('wordnet')
 
+# Initialize session state for 'user_input' if not already initialized
 if 'user_input' not in st.session_state:
     st.session_state.user_input = ""
+
+# Initialize session state for 'conversation_history' if not already initialized
+if 'conversation_history' not in st.session_state:
+    st.session_state.conversation_history = []
 
 # Initialize lemmatizer and load data
 lemmatizer = nltk.WordNetLemmatizer()
@@ -43,12 +48,16 @@ def predict_class(sentence):
     results = [[i, r] for i, r in enumerate(res) if r > ERROR_THRESHOLD]
 
     results.sort(key=lambda x: x[1], reverse=True)
+
+    if len(results) == 0:  # Make sure results are not empty
+        return [{'intent': 'no_intent', 'probability': '0.0'}]  # Default response if empty
+
     return_list = [{'intent': classes[r[0]], 'probability': str(r[1])} for r in results]
     return return_list
 
 # Function to get a response based on the predicted intent
 def get_response(intents_list, intents_json):
-    if not intents_list:
+    if not intents_list:  # Check if intents_list is empty
         return "Sorry, I didn't understand that."
     
     tag = intents_list[0]['intent']
@@ -65,8 +74,9 @@ st.title("UIT Chatbot")
 st.write("Welcome to the University of Information Technology (UIT) Yangon chatbot!")
 
 # Display conversation history
-if 'conversation_history' not in st.session_state:
-    st.session_state.conversation_history = []
+for msg in st.session_state.conversation_history:
+    role = "User" if msg['role'] == 'user' else "Bot"
+    st.write(f"{role}: {msg['message']}")
 
 # Input box for user messages and send button
 user_input = st.text_input("You: ", value=st.session_state.user_input)

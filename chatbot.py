@@ -6,8 +6,10 @@ import numpy as np
 import streamlit as st
 from keras.models import load_model
 
-# Ensure punkt resource is available
-from nltk.stem import WordNetLemmatizer
+# Ensure punkt and wordnet resources are available
+nltk.download('wordnet')
+nltk.download('punkt')
+
 
 # Initialize lemmatizer and load data
 lemmatizer = nltk.WordNetLemmatizer()
@@ -60,9 +62,9 @@ def get_response(intents_list, intents_json):
 st.title("UIT Chatbot")
 st.write("Welcome to the University of Information Technology (UIT) Yangon chatbot!")
 
-# Check if session state exists for user_input, otherwise initialize it
-if 'user_input' not in st.session_state:
-    st.session_state.user_input = ""
+# Display conversation history
+if 'conversation_history' not in st.session_state:
+    st.session_state.conversation_history = []
 
 # Input box for user messages and send button
 user_input = st.text_input("You: ", value=st.session_state.user_input)
@@ -70,6 +72,7 @@ user_input = st.text_input("You: ", value=st.session_state.user_input)
 # Handle Exit phrases (exit, bye, goodbye, etc.)
 exit_phrases = ["exit", "bye", "goodbye", "see you", "quit", "later"]
 if user_input.lower() in exit_phrases:
+    st.session_state.conversation_history.append({"role": "bot", "message": "Goodbye! Have a great day."})
     st.write("Bot: Goodbye! Have a great day.")
     st.stop()  # Stops the Streamlit app execution
 else:
@@ -78,11 +81,20 @@ else:
     # Check if the user clicked the "Send" button and user_input is not empty
     if send_button and user_input.strip():
         try:
-            # Predict and get response from the model
-            ints = predict_class(user_input)
-            response = get_response(ints, intents)
-            st.write(f"Bot: {response}")
-            
+            with st.spinner('Bot is thinking...'):
+                # Predict and get response from the model
+                ints = predict_class(user_input)
+                response = get_response(ints, intents)
+                
+                # Display the bot's response in conversation history
+                st.session_state.conversation_history.append({"role": "user", "message": user_input})
+                st.session_state.conversation_history.append({"role": "bot", "message": response})
+                
+                # Update UI with conversation history
+                for msg in st.session_state.conversation_history:
+                    role = "User" if msg['role'] == 'user' else "Bot"
+                    st.write(f"{role}: {msg['message']}")
+
             # Clear the text input after sending
             st.session_state.user_input = ""  # Clear the text input field
         except Exception as e:
@@ -92,6 +104,6 @@ else:
     # If the user has not typed anything, show a prompt
     elif send_button and not user_input.strip():
         st.write("Bot: Please type a message!")
-    
+
     # Update the session state with the latest input after every change
     st.session_state.user_input = user_input

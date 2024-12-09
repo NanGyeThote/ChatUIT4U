@@ -1,16 +1,16 @@
+import nltk
 import random
 import json
 import pickle
 import numpy as np
-import nltk
 import streamlit as st
 from keras.models import load_model
 
-# Ensure necessary NLTK resources are downloaded
+# Ensure punkt resource is available
 try:
     nltk.data.find('tokenizers/punkt')
 except LookupError:
-    nltk.download('punkt_tab')
+    nltk.download('punkt')
 
 # Initialize lemmatizer and load data
 lemmatizer = nltk.WordNetLemmatizer()

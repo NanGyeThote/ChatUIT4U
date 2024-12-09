@@ -7,10 +7,7 @@ import streamlit as st
 from keras.models import load_model
 
 # Ensure punkt resource is available
-try:
-    nltk.data.find('tokenizers/punkt')
-except LookupError:
-    nltk.download('punkt')
+nltk.download('punkt')
 
 # Initialize lemmatizer and load data
 lemmatizer = nltk.WordNetLemmatizer()

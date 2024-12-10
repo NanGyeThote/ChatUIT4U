@@ -7,7 +7,7 @@ import streamlit as st
 from keras.models import load_model
 
 # Ensure punkt and wordnet resources are available (only download if not already present)
-nltk.data.path.append('/tmp/nltk_data')  # Custom path to store NLTK data
+# Custom path to store NLTK data
 
 # Check if the 'punkt' and 'wordnet' resources are available before downloading
 try:
